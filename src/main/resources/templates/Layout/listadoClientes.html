@@ -49,7 +49,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-center p-2" th:if="${personas == null or personas.empty">
+                            <div class="text-center p-2" th:if="${personas == null or personas.empty}">
                                 <span th:text="#{persona.lista-vacia}">Lista Vacia</span>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                     <div class="col-md-3">
                         <div class="card text-center bg-danger text-white mb-3">
                             <div class="card-body">
-                                <h3 th:text="${persona.saldoTotal}">Saldo Total</h3>
+                                <h3 th:text="#{persona.saldoTotal}">Saldo Total</h3>
                                 <h4 class="display-4">
                                     [[${new java.text.DecimalFormat('$#,##0.00').format(saldoTotal)}]]
                                 </h4>
