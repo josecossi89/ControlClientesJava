@@ -20,22 +20,22 @@
         <form th:action="@{/guardar}" method="post" th:object="${persona}">
             <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
             <br/>
-            <label for="nombre">[[#{tabla.nombre}]]:</label>
+            <label for="nombre">[[#{persona.nombre}]]:</label>
             <input type="text" name="nombre" th:field="*{nombre}"/>
             <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</span>
             <br/> <br/>
 
-            <label for="apellido">[[#{tabla.apellido}]]:</label>
+            <label for="apellido">[[#{persona.apellido}]]:</label>
             <input type="text" name="apellido" th:field="*{apellido}"/>
             <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error Apellido</span>
             <br/> <br/>
 
-            <label for="email">[[#{tabla.email}]]:</label>
+            <label for="email">[[#{persona.email}]]:</label>
             <input type="text" name="email" th:field="*{email}"/>
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error Email</span>
             <br/> <br/>
 
-            <label for="telefono">[[#{tabla.telefono}]]:</label>
+            <label for="telefono">[[#{persona.telefono}]]:</label>
             <input type="text" name="telefono" th:field="*{telefono}"/>
             <br/> <br/>
             
