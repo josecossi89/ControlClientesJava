@@ -27,6 +27,19 @@
                                             <th></th>
                                         </tr>
                                     </thead>
+                                    <tbody>
+                                        <tr th:each="persona, contador : ${personas}">
+                                            <td>[[${contador.count}]]</td>
+                                            <td>[[${persona.nombre} + ' ' + ${persona.apellido}]]</td>
+                                            <td> [[${new java.text.DecimalFormat('$#,##0.00').format(persona.saldo)}]]</td>
+                                            <td>
+                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar} + ${persona.idPersona}"
+                                                   class="btn btn-secondary">
+                                                    <i class="fas fa-angle-double-right"></i>[[#{accion.editar}]]
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
