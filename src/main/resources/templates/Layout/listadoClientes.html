@@ -7,7 +7,7 @@
         <meta charset="UTF-8"/>
     </head>
     <body>
-        
+
         <section th:fragment="listadoClientes" id="clientes">
             <div class="container">
                 <div class="row">
@@ -31,14 +31,14 @@
                                         <tr th:each="persona, contador : ${personas}">
                                             <td>[[${contador.count}]]</td>
                                             <td>[[${persona.nombre} + ' ' + ${persona.apellido}]]</td>
-                                            <td> [[${new java.text.DecimalFormat('$#,##0.00').format(persona.saldo)}]]</td>
+                                            <td> [[${new java.text.DecimalFormat('$#,##0.0').format(persona.saldo)}]]</td>
                                             <td>
                                                 <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar/} + ${persona.idPersona}"
                                                    class="btn btn-secondary">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.editar}]]
                                                 </a>
                                             </td>
-                                            
+
                                             <td>
                                                 <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/eliminar(idPersona=${persona.idPersona})}"
                                                    class="btn btn-dark">
@@ -54,18 +54,27 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <!<!-- Tarjeta de Saldo Total -->
                     <div class="col-md-3">
                         <div class="card text-center bg-danger text-white mb-3">
                             <div class="card-body">
                                 <h3 th:text="#{persona.saldoTotal}">Saldo Total</h3>
                                 <h4 class="display-4">
-                                    [[${new java.text.DecimalFormat('$#,##0.00').format(saldoTotal)}]]
+                                    [[${new java.text.DecimalFormat('$#,##0.0').format(saldoTotal)}]]
+                                </h4>
+                            </div>
+                        </div>
+
+                        <!<!-- Tarjeta de Total Clientes -->
+                        <div class="card text-center bg-success text-white mb-3">
+                            <div class="card-body">
+                                <h3 th:text="#{persona.totalClientes}">Total Clientes</h3>
+                                <h4 class="display-4">
+                                    <i class="fas fa-users"></i>  [[${totalClientes}]]
                                 </h4>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </section>
